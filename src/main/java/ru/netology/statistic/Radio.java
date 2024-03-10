@@ -3,21 +3,29 @@ package ru.netology.statistic;
 public class Radio {
     private int currentStation;
     private int currentVolume;
+    private int stationsAmount = 10;
+
+    public Radio(int stationsAmount) {
+        this.stationsAmount = stationsAmount;
+    }
+    public Radio() {
+
+    }
 
     public int getCurrentStation() {
         return currentStation;
     }
 
-    public void setCurrentStation(int newCurrentStation) {
-        if (newCurrentStation <= 9) {
-            if (newCurrentStation >= 0) {
-                this.currentStation = newCurrentStation;
+    public void setCurrentStation(int newStation) {
+        if (newStation < stationsAmount) {
+            if (newStation >= 0) {
+                currentStation = newStation;
             }
         }
     }
 
     public void next() {
-        if (currentStation == 9) {
+        if (currentStation == stationsAmount - 1) {
             currentStation = 0;
         } else {
             currentStation++;
@@ -26,7 +34,7 @@ public class Radio {
 
     public void prev() {
         if (currentStation == 0) {
-            currentStation = 9;
+            currentStation = stationsAmount - 1;
         } else {
             currentStation--;
         }
