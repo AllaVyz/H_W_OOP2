@@ -15,6 +15,16 @@
 
         Assertions.assertEquals(actual, expected);
     }
+      @Test
+      public void testSetCurrentStationRegularFlow2() {
+
+          Radio radio = new Radio(15);
+          radio.setCurrentStation(12);
+          int actual = radio.getCurrentStation();
+          int expected = 12;
+
+          Assertions.assertEquals(actual, expected);
+      }
 
     @Test
     public void testSetCurrentStationOverMax() {
@@ -61,6 +71,16 @@
 
         Assertions.assertEquals(actual, expected);
     }
+      @Test
+      public void testNextLess2() {
+          Radio radio = new Radio(15);
+          radio.setCurrentStation(14);
+          radio.next();
+          int actual = radio.getCurrentStation();
+          int expected = 0;
+
+          Assertions.assertEquals(actual, expected);
+      }
 
     @Test
     public void testPrevOver() {
@@ -83,6 +103,17 @@
 
         Assertions.assertEquals(actual, expected);
     }
+
+      @Test
+      public void testPrevLess2() {
+          Radio radio = new Radio(15);
+          radio.setCurrentStation(0);
+          radio.prev();
+          int actual = radio.getCurrentStation();
+          int expected = 14;
+
+          Assertions.assertEquals(actual, expected);
+      }
 
     @Test
     public void testIncreaseVolume() {
